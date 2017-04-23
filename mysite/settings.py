@@ -25,7 +25,7 @@ SECRET_KEY = '@_!($-#(v!4q(pt&a&qxrz^g=+ntr*p$09ebv-c14fr@_sp#)7'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1', 'egeriicw.pythonanwhere.com']
+ALLOWED_HOSTS = ['127.0.0.1', 'egeriicw.pythonanywhere.com']
 
 
 # Application definition
