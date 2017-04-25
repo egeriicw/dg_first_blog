@@ -17,6 +17,13 @@ class Address(models.Model):
 class Place(models.Model):
     name = models.TextField(max_length=255)
     address = models.OneToOneField(Address, on_delete=models.CASCADE, blank=True)
+
+    # To add
+    # type = models.OneToOneField(PlaceType)
+    # classification = models.ForeignKey(PlaceClassification)
+    # group = models.ForeignKey(PlaceGroup)
+    # organization = models.ForeignKey(Organization)
+
     date_begin = models.DateField(default=datetime.strptime("1900-01-01", "%Y-%m-%d"), blank=False, null=True)
     date_end = models.DateField(blank=True, null=True)
 
