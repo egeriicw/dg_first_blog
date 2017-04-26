@@ -6,16 +6,19 @@ from datetime import datetime
 # Create your models here.
 
 class Address(models.Model):
-    street_num = models.TextField(max_length=10)
-    street_name1 = models.TextField(max_length=255)
-    street_name2 = models.TextField(max_length=255, blank=True)
-    street_name3 = models.TextField(max_length=255, blank=True)
+    street_num = models.CharField(max_length=10)
+    street_name1 = models.CharField(max_length=255)
+    street_name2 = models.CharField(max_length=255, blank=True)
+    street_name3 = models.CharField(max_length=255, blank=True)
+    city_name = models.CharField(max_length=255, blank=True)
+    state_name = models.CharField(max_length=20, blank=True)
+    zip_code = models.CharField(max_length=5, blank=True)
 
     def __str__(self):
         return "{} {} {} {}".format(self.street_num, self.street_name1, self.street_name2, self.street_name3)
 
 class Place(models.Model):
-    name = models.TextField(max_length=255)
+    name = models.CharField(max_length=255)
     address = models.OneToOneField(Address, on_delete=models.CASCADE, blank=True)
 
     # To add
