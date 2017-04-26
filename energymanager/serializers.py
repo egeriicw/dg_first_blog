@@ -1,6 +1,6 @@
 from rest_framework import serializers
 
-from .models import Address, Place
+from .models import Address, Place, GSODWeatherStation
 
 class AddressSerializer(serializers.ModelSerializer):
     class Meta:
@@ -10,5 +10,11 @@ class AddressSerializer(serializers.ModelSerializer):
 class PlaceSerializer(serializers.ModelSerializer):
     class Meta:
         model = Place
+        fields = '__all__'
+        depth = 1
+
+class GSODWeatherStationSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = GSODWeatherStation
         fields = '__all__'
         depth = 1

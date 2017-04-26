@@ -1,5 +1,5 @@
 from django.conf.urls import url
-from .views import AddressViewSet, PlaceViewSet
+from .views import AddressViewSet, PlaceViewSet, GSODWeatherStationViewSet
 from rest_framework import routers
 
 
@@ -27,8 +27,22 @@ place_detail = PlaceViewSet.as_view({
     'delete': 'destroy'
 })
 
+gsodweatherstation_list = GSODWeatherStationViewSet.as_view({
+    'get': 'list',
+    'post': 'create'
+})
+
+gsodweatherstation_detail = GSODWeatherStationViewSet.as_view({
+    'get': 'retrieve',
+    'put': 'update',
+    'patch': 'partial_update',
+    'delete': 'destroy'
+})
+
+
 router = routers.DefaultRouter()
 router.register(r'address', AddressViewSet)
 router.register(r'place', PlaceViewSet)
+router.register(r'weather', GSODWeatherStationViewSet)
 
 urlpatterns = router.urls
