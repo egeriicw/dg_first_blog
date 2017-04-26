@@ -1,5 +1,6 @@
 from __future__ import unicode_literals
 from django.db import models
+from django.utils.text import slugify
 
 from datetime import datetime
 
@@ -202,6 +203,10 @@ class GSODWeatherStation(models.Model):
 
     def __str__(self):
         return "{}-{}".format(self.usaf_id, self.wban_id)
+
+    def save(self, *args, **kwargs):
+        self.slug = slugify(self.usaf_id + ' ' + self.wban_id)
+        super(GSODWeatherStation, self).save(*args, **kwargs)
 
 class Address(models.Model):
     street_num = models.CharField(max_length=10)
